@@ -79,7 +79,7 @@ for(i in 1:3){
       par(mar = c(0,0,0,0))
       plot(c(0, 1), c(0, 1), ann = F, bty = 'n', type = 'n', xaxt = 'n', yaxt = 'n')
       
-      text(x = 0.3, y = 0.5, paste(colnames(measure)[i]), 
+      text(x = 0.5, y = 0.5, paste(colnames(measure)[i]), 
            cex = 3.5, col = "black", family="serif", font=2, adj=0.5)
     }
       
@@ -108,6 +108,8 @@ for(i in 1:3){
 
 
 ### Exercise 2.5
+
+# pairs(measure, panel = function(x, y) plot(density(cbind(x, y)), add = TRUE))
 par(mar = c(1, 1, 1, 1))
 n = ncol(pottery) - 1
 par(mfrow = c(n, n))
@@ -153,9 +155,9 @@ sub3 = subset(quakes, subset = mag >5.6 & mag <= 6.4)
 plot(xyplot(lat ~ long| cut(mag, 3), data = quakes,
             layout = c(3,1), xlab = "Longitude",
             ylab = "Latitude"))
-with(sub1, symbols(lat, long, circles = depth, 
-                   inches = 0.5, add = TRUE))
-with(sub2, symbols(lat, long, squares = depth, 
-                   inches = 0.5, add = TRUE))
-with(sub3, symbols(lat, long, circles = depth, 
-                   inches = 0.5, add = TRUE))
+#with(sub1, symbols(lat, long, circles = depth, 
+#                   inches = 0.5, add = TRUE))
+#with(sub2, symbols(lat, long, squares = depth, 
+#                   inches = 0.5, add = TRUE))
+#with(sub3, symbols(lat, long, circles = depth, 
+#                   inches = 0.5, add = TRUE))
