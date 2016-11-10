@@ -1,0 +1,86 @@
+\documentclass[a4paper,10pt]{article}
+%\documentclass[a4paper,10pt]{scrartcl}
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+
+\title{}
+\author{}
+\date{}
+
+\pdfinfo{%
+  /Title    (J2 - Homework)
+  /Author   (Simon Rieß)
+  /Creator  ()
+  /Producer ()
+  /Subject  ()
+  /Keywords ()
+}
+
+\begin{document}
+\maketitle
+
+\section{Exercise 2.6}
+$A= \begin{pmatrix}
+9 & -2 \\
+-2 & 6 \end{pmatrix}$\\
+
+
+a) Is A symmetric?\\
+$A^T = A= \begin{pmatrix}
+9 & -2 \\
+-2 & 6 \end{pmatrix}$\\
+Yes it is.\\
+
+b) Show that A is positive definite.\\
+R: eigen(A)\\
+\$values\\
+10  5
+
+All eigenvalues are positive $\rightarrow$ A is positive definite\\
+
+\section{Exercise 2.7}
+a) Eigenvalues and Eigenvectors\\
+\begin{align*}
+  \mid A - \lambda I\mid =& \begin{vmatrix} 9-\lambda & -2 \\ -2 & 6-\lambda \end{vmatrix} = 0\\
+  & 54 - 15 \lambda + \lambda^2 - 4 = 0\\
+  \lambda_1 = 5\ &\ \lambda_2 = 10
+ \end{align*}
+ 
+ \begin{align*}
+  A - 5 I =  \begin{pmatrix} 4 & -2 \\ -2 & 1 \end{pmatrix} x = & 0\\
+  \begin{pmatrix} 1 & -1/2 \\ -2 & 1 \end{pmatrix} x = & 0\\
+  \begin{pmatrix} 1 & -1/2 \\ 0 & 0 \end{pmatrix} x = & 0\\
+  x_1 = & \begin{pmatrix} -1/2 & -1 \end{pmatrix} \\
+  \frac{x_1}{\mid x_1 \mid }  = & \frac{x_1}{ \sqrt{(-1)^2 + (-1/2)^2 } }\\
+  = & \frac{x_1}{1.118034} \\
+  = & \begin{pmatrix}  -0.4472136 & - 0.8944272 \end{pmatrix}\\
+ \end{align*}
+
+  \begin{align*}
+  A - 10 I =  \begin{pmatrix} -1 & -2 \\ -2 & -4 \end{pmatrix} x = & 0\\
+  \begin{pmatrix} 1 & 2 \\ -2 & -4 \end{pmatrix} x = & 0\\
+  \begin{pmatrix} 1 & 2 \\ 0 & 0 \end{pmatrix} x = & 0\\
+  x_1 = & \begin{pmatrix} 2 & -1 \end{pmatrix} \\
+  \frac{x_1}{\mid x_1 \mid }  = & \frac{x_1}{ \sqrt{2^2 + (-1)^2 } }\\
+  = & \frac{x_1}{\sqrt{5}} \\
+  = & \begin{pmatrix}  - 0.8944272 & 0.4472136 \end{pmatrix}\\
+ \end{align*}
+ 
+ b) Spectral decomposition\\
+ \begin{align*}
+  A = & \sum_{i=1}^n \lambda_i e_i e_i^T\\
+  = & 5 \begin{pmatrix} \frac{-1}{\sqrt{5}} \\ \frac{-2}{\sqrt{5}} \end{pmatrix} \begin{pmatrix} \frac{-1}{\sqrt{5}} & \frac{-2}{\sqrt{5}} \end{pmatrix} + 10 \begin{pmatrix} \frac{-2}{\sqrt{5}} \\ \frac{-1}{\sqrt{5}} \end{pmatrix} \begin{pmatrix} \frac{-2}{\sqrt{5}} & \frac{-1}{\sqrt{5}} \end{pmatrix} \\
+  = & 5 \begin{pmatrix} \frac{1}{5} & \frac{2}{5} \\ \frac{2}{5} & \frac{4}{5} \end{pmatrix} + 10 \begin{pmatrix} \frac{4}{5} & \frac{-2}{5} \\ \frac{-2}{5} & \frac{1}{5} \end{pmatrix}\\
+  = & \begin{pmatrix} 9 & -2 \\ -2 & 6 \end{pmatrix} \\
+  = & A
+ \end{align*}
+ 
+ c) Inverse matrix\\
+ \begin{align*}
+  A^{-1} & = \frac{1}{9 \cdot 6 - (-2) \cdot (-2)} \begin{pmatrix} 6 & 2 \\ 2 & 9 \end{pmatrix}\\
+  = & \begin{pmatrix} 0.12 & 0.04 \\ 0.04 & 0.18 \end{pmatrix}
+ \end{align*}
+
+
+
+\end{document}
