@@ -84,9 +84,9 @@ for(i in 1:3){
     }
       
     else{
-      selected = measure[, c(i,j, 4)]
-      selected_m = subset(selected, subset = gender == "male")
-      selected_f = subset(selected, subset = gender == "female")
+
+      selected_m = measure[measure$gender == "male", c(i, j)]
+      selected_f = measure[measure$gender == "female", c(i, j)]
       
       measured_m = bkde2D(selected_m[, c(1,2)], 
                           bandwidth = sapply(selected_m[, c(1,2)], dpik))
