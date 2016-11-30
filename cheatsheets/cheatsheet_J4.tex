@@ -1,0 +1,302 @@
+\documentclass[a4paper]{article}
+\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\newcommand{\SweaveOpts}[1]{}  % do not interfere with LaTeX
+\newcommand{\SweaveInput}[1]{} % because they are not real TeX commands
+\newcommand{\Sexpr}[1]{}       % will only be parsed by R
+
+
+
+
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage{a4wide,paralist}
+\usepackage{amsmath, amssymb, xfrac, amsthm}
+\usepackage{dsfont}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{framed}
+\usepackage{multirow}
+\usepackage{bytefield}
+\usepackage{csquotes}
+\usepackage[breakable, theorems, skins]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{arydshln}
+\usepackage{tcolorbox}
+
+
+% math spaces
+\newcommand{\N}{\mathds{N}} % naturals
+\newcommand{\Z}{\mathds{Z}} % integers
+\newcommand{\Q}{\mathds{Q}} % rationals
+\newcommand{\R}{\mathds{R}} % reals
+\newcommand{\C}{\mathds{C}} % complex
+\newcommand{\HS}{\mathcal{H}}  % hilbertspace
+
+% basic math stuff
+\newcommand{\fx}{f(x)} %f(x)
+\newcommand{\fhat}{\hat{f}} %f(x) hat
+\def\argmax{\mathop{\sf arg\,max}} % argmax
+\def\argmin{\mathop{\sf arg\,min}} % argmin
+\newcommand{\sign}{\operatorname{sign}} % signum
+\newcommand{\I}{\mathbb{I}} % indicator
+\newcommand{\order}{\mathcal{O}} % order
+\newcommand{\fp}[2]{\frac{\partial #1}{\partial #2}} % partial derivative
+\newcommand{\continuous}{\mathcal{C}}
+
+% linear algebra
+\newcommand{\one}{\boldsymbol{1}} % unitvector
+\newcommand{\id}{\mathrm{I}}      %identity
+\newcommand{\diag}{\operatorname{diag}} %diagonal
+\newcommand{\trace}{\operatorname{tr}} % trace
+\newcommand{\spn}{\operatorname{span}} % span
+\newcommand{\scp}[2]{\left\langle #1, #2 \right\rangle} % scalarproduct 
+
+% basic probability + stats 
+\renewcommand{\P}{\mathds{P}} % probability
+\newcommand{\E}{\mathds{E}} % expectation
+\newcommand{\var}{\mathsf{Var}} % variance
+\newcommand{\cov}{\mathsf{Cov}} % covariance
+\newcommand{\corr}{\mathsf{Corr}} % correlation
+\newcommand{\normal}{\mathcal{N}} % N of the normal distribution
+
+% machine learning
+\newcommand{\targets}{Y = (Y_1,\ldots ,Y_K)}
+\newcommand{\inputs}{X = (X_1,\dots, X_p)}
+\newcommand{\risk}{\mathcal{R}} % risk function
+\newcommand{\sv}{\operatorname{SV}} % supportvectors
+\newcommand{\nset}{\{1, \ldots, n\}} % set from 1 to n
+\newcommand{\pset}{\{1, \ldots, p\}} % set from 1 to p
+\newcommand{\D}{\{ (x_1, y_1), \ldots, (x_n,  y_n)\}} % data
+\newcommand{\Lxy}{L(f(x), y)} %loss
+\newcommand{\marg}{\mathsf{m}}
+
+% basic latex stuff
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}} %fontstyle for R packages
+\newcommand{\lz}{\vspace{0.5cm}} %vertical space
+\newcommand{\dlz}{\vspace{1cm}}
+\newcommand{\mat}[1]{ %short pmatrix command
+  \begin{pmatrix}
+    #1
+  \end{pmatrix}
+}
+
+
+\tcbset{enhanced}
+
+\DeclareRobustCommand{\mybox}[2][gray!20]{%
+	\iffalse
+	\begin{tcolorbox}[   %% Adjust the following parameters at will.
+		breakable,
+		left=0pt,
+		right=0pt,
+		top=0pt,
+		bottom=0pt,
+		colback=#1,
+		colframe=#1,
+		width=\dimexpr\linewidth\relax, 
+		enlarge left by=0mm,
+		boxsep=5pt,
+		arc=0pt,outer arc=0pt,
+		]
+		#2
+	\end{tcolorbox}
+	\fi
+}
+
+\DeclareRobustCommand{\myboxshow}[2][gray!20]{%
+%	\iffalse
+	\begin{tcolorbox}[   %% Adjust the following parameters at will.
+		breakable,
+		left=0pt,
+		right=0pt,
+		top=0pt,
+		bottom=0pt,
+		colback=#1,
+		colframe=#1,
+		width=\dimexpr\linewidth\relax, 
+		enlarge left by=0mm,
+		boxsep=5pt,
+		arc=0pt,outer arc=0pt,
+		]
+		#2
+	\end{tcolorbox}
+%	\fi
+}
+
+
+%exercise numbering
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand\labelenumi{\theenumi}
+
+
+\font \sfbold=cmssbx10
+
+\setlength{\oddsidemargin}{0cm} \setlength{\textwidth}{16cm}
+
+
+\sloppy
+\parindent0em
+\parskip0.5em
+\topmargin-2.3 cm
+\textheight25cm
+\textwidth17.5cm
+\oddsidemargin-0.8cm
+\pagestyle{empty}
+
+\newcommand{\kopf}[1] {
+\hrule
+\vspace{.15cm}
+\begin{minipage}{\textwidth}
+%akwardly i had to put \" here to make it compile correctly
+	{\sf\bf Individualmodul (Statistik): Multivariate Statistics\hfill Cheat sheet\\
+	 Bernd Bischl, Janek Thomas\hfill WiSe 2016/17}
+\end{minipage}
+\vspace{.05cm}
+\hrule
+\vspace{1cm}}
+
+\newenvironment{allgemein}
+	{\noindent}{\vspace{1cm}}
+
+\newcounter{aufg}
+\newenvironment{aufgabe}
+	{\refstepcounter{aufg}\textbf{Exercise \arabic{aufg}:}\\ \noindent}
+	{\vspace{0.5cm}}
+
+\newenvironment{loesung}
+	{\refstepcounter{aufg}\textbf{Solution \arabic{aufg}:}\\\noindent}
+	{\bigskip}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{defi}{Definition}
+
+
+\begin{document}
+
+
+
+\kopf{1}
+
+\section*{J4 - The Multivariate Normal Distribution}
+
+\subsection*{Large Sample behaviour of $\overline{X}$ and $S$}
+
+It turns out that certain multivariate statistics, like $\overline{X}$ and $S$, have large-sample properties analogous to their univariate counterparts. 
+
+\begin{theorem}[Law of large numbers] 
+Let $Y_1, Y_2, ..., Y_n$ be independent observations from a population with mean $\mathbb{E}(Y_i)=\mu_i$. Then
+$$ \overline{Y}=\frac{Y_1+Y_2+...+Y_n}{n} \overset{p}{\longrightarrow}\mu ~~~~~ \text{ for }n \to \infty, $$
+that is $\overline{Y}$ converges in probability to $\mu$.
+\end{theorem}
+\vspace{0.2cm}
+\begin{remark}
+Convergence in probability means in our case that for every prescribed accuracy $\epsilon>0$ $$P(|\overline{Y}-\mu| < \epsilon)\longrightarrow 1 ~~~~ \text{as } n\to\infty.$$
+\end{remark}
+\vspace{0.5cm}
+
+\vspace{0.5cm}
+\begin{theorem}[The central limit theorem]
+Let $X_1, X_2, ..., X_n$ be independent observations from any population with mean $\mu \in \mathbb{R}^p$ and finite covariance $\Sigma \in \mathbb{R}^{p\times p}$. Then $$\sqrt{n}(\overline{X}-\mu) \overset{a}{\sim}\mathcal{N}_p(0, \Sigma)$$
+for large sample sizes $n$. 
+\end{theorem}
+
+A corollary of the central limit theorem is that $n(\overline{X}-\mu)^T\Sigma^{-1} (\overline{X}-\mu)$ is approximately $\chi_p^2$ (replacing $\Sigma$ by $S$ does not seriously affect this approximation).
+
+
+\subsection*{Assessing the Assumption of Normality}
+
+Based on the central limit theorem, in situations where the sample size is large and the techniques depend on the behavoir of $\overline{X}$ or $n(\overline{X}-\mu)^T\Sigma^{-1} (\overline{X}-\mu)$ the assumption of normality is made. 
+
+There may be cases where the sample size isn't large enough and our assumption of normaility is violated. We should address these questions in order to check if our assumption was appropriate:
+
+\begin{enumerate}
+\item Do the marginal distributions of the elements of $X$ appear to be normal?\\
+You can use a Q-Q-plot to assess the assumption of normality and you could do a correlation coefficient test for normality. 
+\item Do the scatter plots of pairs of observations on different characteristics give the elliptical appearance expected from normal populations? 
+\item Are there any "wild" observations that should be checked for accuracy?
+\end{enumerate} 
+
+\subsection*{Detecting Outliers and Cleaning Data}
+
+Outliers are best detected visually whenever this is possible. 
+
+Steps for Detecting Outliers:
+\begin{enumerate}
+\item Make a dot plot for each variable.
+\item Make a scatter plot for each pair of variables.
+\item Calculate the standardized values $z_{jk}=(x_{jk}-\bar{x}_k)/\sqrt{s_{kk}}$ for $j=1,2, ..., n$ and each column $k=1, 2, ..., p$. Examine these standardized values for large or small values.
+\item Calculate the generalized squared distances $(x_j-\bar{x})^TS^{-1}(x_j-\bar{x})$. In a chi-square plot, these would be the points farthest from the origin. 
+\end{enumerate}
+
+\subsection*{Transformations to Near Normality}
+
+If normality is not a viable assumption, there are some transformations to make the data more "normal looking". 
+
+\begin{defi}[Box-Cox-Transformation]
+Let $x>0$ be an observation. The Box-Cox-Transformation of $x$ is given by \begin{align*}
+x^{(\lambda)}=\left\{\begin{matrix} \dfrac{x^\lambda-1} {\lambda} & \text{für }\lambda \ne 0 \\[10pt] \ln(x) & \text{für }\lambda = 0\end{matrix}\right.
+\end{align*}
+\end{defi}
+\vspace{0.5cm}
+The Box-Cox solution for the choice of an appropriate power $\lambda$ is the solution that maximizes the expression $$l(\lambda)=-\frac{n}{2}\ln\biggl[\frac{1}{n}\sum_{j=1}^n(x_j^{(\lambda)}-\overline{x_j^{(\lambda)}})^2\biggr]+(\lambda-1)\sum_{j=1}^n\ln x_j.$$ or in the multivariate case $$l(\lambda_1, \lambda_2, ..., \lambda_p) = -\frac{n}{2}\ln|S(\lambda)|+(\lambda-1)\sum_{j=1}^{n}\ln x_{j1}+(\lambda_2-1)\sum_{j=1}^{n}\ln x_{j2} + ... + (\lambda_p-1)\sum_{j=1}^{n}\ln x_{jp},$$ where $S(\lambda)$ is the sample covariance matrix computed from the transformed observations $x_j^{(\lambda)}$.
+
+As the second term is very difficult to maximize, it is a good practical approach to maximize the first equation for each variable separately. In other words, you make each marginal distribution approximately normal. Although normal marginals are not sufficient to ensure the joint distribution is normal, in practice this may be good enough. 
+
+
+\end{document}
