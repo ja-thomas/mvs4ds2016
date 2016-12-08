@@ -1,0 +1,302 @@
+\documentclass[a4paper]{article}
+\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+\let\hlipl\hlkwb
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\newcommand{\SweaveOpts}[1]{}  % do not interfere with LaTeX
+\newcommand{\SweaveInput}[1]{} % because they are not real TeX commands
+\newcommand{\Sexpr}[1]{}       % will only be parsed by R
+
+
+
+
+\usepackage[utf8]{inputenc}
+%\usepackage[ngerman]{babel}
+\usepackage{a4wide,paralist}
+\usepackage{amsmath, amssymb, xfrac, amsthm}
+\usepackage{dsfont}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{framed}
+\usepackage{multirow}
+\usepackage{bytefield}
+\usepackage{csquotes}
+\usepackage[breakable, theorems, skins]{tcolorbox}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{arydshln}
+\usepackage{tcolorbox}
+\usepackage{arydshln}
+
+% math spaces
+\newcommand{\N}{\mathds{N}} % naturals
+\newcommand{\Z}{\mathds{Z}} % integers
+\newcommand{\Q}{\mathds{Q}} % rationals
+\newcommand{\R}{\mathds{R}} % reals
+\newcommand{\C}{\mathds{C}} % complex
+\newcommand{\HS}{\mathcal{H}}  % hilbertspace
+
+% basic math stuff
+\newcommand{\fx}{f(x)} %f(x)
+\newcommand{\fhat}{\hat{f}} %f(x) hat
+\def\argmax{\mathop{\sf arg\,max}} % argmax
+\def\argmin{\mathop{\sf arg\,min}} % argmin
+\newcommand{\sign}{\operatorname{sign}} % signum
+\newcommand{\I}{\mathbb{I}} % indicator
+\newcommand{\order}{\mathcal{O}} % order
+\newcommand{\fp}[2]{\frac{\partial #1}{\partial #2}} % partial derivative
+\newcommand{\continuous}{\mathcal{C}}
+
+% linear algebra
+\newcommand{\one}{\boldsymbol{1}} % unitvector
+\newcommand{\id}{\mathrm{I}}      %identity
+\newcommand{\diag}{\operatorname{diag}} %diagonal
+\newcommand{\trace}{\operatorname{tr}} % trace
+\newcommand{\spn}{\operatorname{span}} % span
+\newcommand{\scp}[2]{\left\langle #1, #2 \right\rangle} % scalarproduct 
+
+% basic probability + stats 
+\renewcommand{\P}{\mathds{P}} % probability
+\newcommand{\E}{\mathds{E}} % expectation
+\newcommand{\var}{\mathsf{Var}} % variance
+\newcommand{\cov}{\mathsf{Cov}} % covariance
+\newcommand{\corr}{\mathsf{Corr}} % correlation
+\newcommand{\normal}{\mathcal{N}} % N of the normal distribution
+
+% machine learning
+\newcommand{\targets}{Y = (Y_1,\ldots ,Y_K)}
+\newcommand{\inputs}{X = (X_1,\dots, X_p)}
+\newcommand{\risk}{\mathcal{R}} % risk function
+\newcommand{\sv}{\operatorname{SV}} % supportvectors
+\newcommand{\nset}{\{1, \ldots, n\}} % set from 1 to n
+\newcommand{\pset}{\{1, \ldots, p\}} % set from 1 to p
+\newcommand{\D}{\{ (x_1, y_1), \ldots, (x_n,  y_n)\}} % data
+\newcommand{\Lxy}{L(f(x), y)} %loss
+\newcommand{\marg}{\mathsf{m}}
+
+% basic latex stuff
+\newcommand{\pkg}[1]{{\fontseries{b}\selectfont #1}} %fontstyle for R packages
+\newcommand{\lz}{\vspace{0.5cm}} %vertical space
+\newcommand{\dlz}{\vspace{1cm}}
+\newcommand{\mat}[1]{ %short pmatrix command
+  \begin{pmatrix}
+    #1
+  \end{pmatrix}
+}
+
+
+\tcbset{enhanced}
+
+\DeclareRobustCommand{\mybox}[2][gray!20]{%
+	\iffalse
+	\begin{tcolorbox}[   %% Adjust the following parameters at will.
+		breakable,
+		left=0pt,
+		right=0pt,
+		top=0pt,
+		bottom=0pt,
+		colback=#1,
+		colframe=#1,
+		width=\dimexpr\linewidth\relax, 
+		enlarge left by=0mm,
+		boxsep=5pt,
+		arc=0pt,outer arc=0pt,
+		]
+		#2
+	\end{tcolorbox}
+	\fi
+}
+
+\DeclareRobustCommand{\myboxshow}[2][gray!20]{%
+%	\iffalse
+	\begin{tcolorbox}[   %% Adjust the following parameters at will.
+		breakable,
+		left=0pt,
+		right=0pt,
+		top=0pt,
+		bottom=0pt,
+		colback=#1,
+		colframe=#1,
+		width=\dimexpr\linewidth\relax, 
+		enlarge left by=0mm,
+		boxsep=5pt,
+		arc=0pt,outer arc=0pt,
+		]
+		#2
+	\end{tcolorbox}
+%	\fi
+}
+
+
+%exercise numbering
+\renewcommand{\theenumi}{(\alph{enumi})}
+\renewcommand{\theenumii}{\roman{enumii}}
+\renewcommand\labelenumi{\theenumi}
+
+
+\font \sfbold=cmssbx10
+
+\setlength{\oddsidemargin}{0cm} \setlength{\textwidth}{16cm}
+
+
+\sloppy
+\parindent0em
+\parskip0.5em
+\topmargin-2.3 cm
+\textheight25cm
+\textwidth17.5cm
+\oddsidemargin-0.8cm
+\pagestyle{empty}
+
+\newcommand{\kopf}[1] {
+\hrule
+\vspace{.15cm}
+\begin{minipage}{\textwidth}
+%akwardly i had to put \" here to make it compile correctly
+	{\sf\bf Individualmodul (Statistik): Multivariate Statistics\hfill Cheat sheet\\
+	 Bernd Bischl, Janek Thomas\hfill WiSe 2016/17}
+\end{minipage}
+\vspace{.05cm}
+\hrule
+\vspace{1cm}}
+
+\newenvironment{allgemein}
+	{\noindent}{\vspace{1cm}}
+
+\newcounter{aufg}
+\newenvironment{aufgabe}
+	{\refstepcounter{aufg}\textbf{Exercise \arabic{aufg}:}\\ \noindent}
+	{\vspace{0.5cm}}
+
+\newenvironment{loesung}
+	{\refstepcounter{aufg}\textbf{Solution \arabic{aufg}:}\\\noindent}
+	{\bigskip}
+
+\newtheorem*{remark}{Remark}
+\newtheorem*{theorem}{Theorem}
+\newtheorem*{defi}{Definition}
+
+
+\begin{document}
+
+
+
+\kopf{1}
+
+\section*{Inference about a Mean Vector}
+[see Johnson, chapter 5, p. 210 ff.]
+
+\subsection*{The Plausibility of $\mu_0$ as a Value for a Normal Population Mean}
+
+Assume we have a random sample $X_1, ..., X_n$ from an $\mathcal{N}_p(\mu, \Sigma)$. In this section, we want to test whether a specific value $\mu_0$ is a plausible value for the true population mean $\mu$. 
+
+We test the hypotheses
+$$H_0: \mu = \mu_0 ~~~\text{against}\mu \ne \mu_0.$$
+
+An appropriate test statistic is the the so-called Hotelling's $T^2$-statistic $$T^2 = (\overline{X}-\mu)^T\bigl(\frac{1}{n}S\bigr)^{-1}(\overline{X}-\mu)=n(\overline{X}-\mu)S^{-1}(\overline{X}-\mu)\sim \frac{(n-1)p}{n-p}F_{p, n-p} ~\text{under }H_0.$$
+
+From this, we can conclude the following decision rule: at the $\alpha$ level of significance, we reject $H_0$ in favor of $H_1$ if $$T^2>\frac{(n-1)p}{n-p}F_{p, n-p}(\alpha)$$
+
+
+\subsection*{Hotelling's $T^2$ and Likelihood Ratio Tests}
+
+Another reasonable approach is the idea of Likelihood Ratio. To determine wether $\mu_0$ is a plausible value of $\mu$, the maximum of the multivariate normal Likelihood $L(\mu_0, \Sigma)$ is compared with the unrestricted maximum of $L(\mu, \Sigma)$. The resulting ratio is called the likelihood ratio statistic $\Lambda$: 
+$$\Lambda=\frac{\max\limits_{\Sigma}L(\mu_0, \Sigma)}{\max\limits_{\mu, \Sigma}L(\mu, \Sigma)}=\biggl(\frac{|\hat{\Sigma}|}{|\hat{\Sigma_0}}\biggr)^{n/2},$$
+where $\hat{\Sigma}$ is the ML-estimate in the unrestricted case and $\hat{\Sigma_0}$ is the ML-estimate under $H_0$. 
+
+The Likelihood ratio test and the test based on the Hotelling's $T^2$ statistic are equivalent.
+
+\begin{theorem}[p. 218]
+	Let $X_1, X_2, ..., X_n$ be a random sample from an $\mathcal{N}_p(\mu, \Sigma)$ population. Then the test based on the Hotelling's $T^2$ statistics is equivalent to the likelihood ratio test of $H_0: \mu = \mu_0$ vs. $H_1: \mu\ne\mu_0$ because
+	$$\Lambda^{2/n}=\biggl(1+\frac{T^2}{n-1}\biggr)^{-1}$$
+\end{theorem}
+
+The following theorem generalizes the idea of the Likelihood-Ratio-Test for the test 
+$$ H_0: \theta \in \Theta_0 ~\text{vs. } \theta \notin \Theta_0.$$
+
+\begin{theorem}[p. 220]
+
+When the sample size $n$ is large, under the null hypothesis $H_0$, $$-2\ln\Lambda = -2\ln\biggl(\frac{\max\limits_{\theta \in \Theta_0}L(\theta)}{\max\limits_{\theta\in \Theta}L(\theta)}\biggr)\overset{a}{\sim}\chi_{\nu-\nu_0}^2, $$ where $\nu-\nu_0=(\text{dimension of }\Theta)-(\text{dimension of }\Theta_0)$.	
+\end{theorem}
+
+\subsection*{Confidence Regions and Simultaneous Comparisons of Component Means}
+
+The idea is now to extend the concept of a univariate confidence interval to a multivariate confidence region. 
+
+\begin{defi}[Confidence region]
+	Let $\theta\in\Theta$ be a vector of unknown population parameters and $X= [X_1, X_2, ..., X_n]$ our data matrix. $R(X)$ is said to be a $100(1-\alpha)$\% confidence region if $$\mathbb{P}(R(X)\text{ will cover the true }\theta)=1-\alpha.$$
+\end{defi}
+
+Using that $n(\overline{X}-\mu)^TS^{-1}(\overline{X}-\mu)\sim\frac{(n-1)p}{n-p}F_{p, n-p}$ we get that the ellipsoid
+$${\mu: n(\overline{x}-\mu)^TS^{-1}(\overline{x}-\mu)\sim\frac{(n-1)p}{n-p}F_{p, n-p}(\alpha)}$$ gives us a $100(1-\alpha)$ confidence region for $\mu$
+
+\begin{theorem}[simultaneous confidence interval]
+	Let $X_1, X_2, ..., X_n$ be a random sample from an $\mathcal{N}_p(\mu, \Sigma)$ population with $\Sigma$ positive definite. Then, simultaneously for all $a$, the intervall
+	$$\biggl(a^T\overline{X}-\sqrt{\frac{p(n-1)}{n(n-p)}F_{p, n-p}(\alpha)a^TSa}, a^T\overline{X}+\sqrt{\frac{p(n-1)}{n(n-p)}F_{p, n-p}(\alpha)a^TSa}\biggr)$$ will contain $a^T\mu$ with probability $1-\alpha$.
+\end{theorem}
+
+\subsection*{Large Sample Inferences about a Population Mean Vector}
+
+So far, we always built our confidence regions under the assumption that our sample was normal. Justified by the Central Limit theorem, if the mean and the covariance exist, we can assume that our sample is normal. 
+
+\begin{theorem}[Hypothesis testing for large samples, p. 235]
+	Let $X_1, X_2, ..., X_n$ be a random sample from a population with mean $\mu$ and positive definite covariance matrix $\Sigma$. When $n-p$ is large, the hypthesis $H_0:\mu=\mu_0$ is rejected in favor of $H_1:\mu\ne\mu_0$, at a level of significance approximately $\alpha$, if the observed $$n(\overline{x}-\mu_0)^TS{-1}(\overline{x}-\mu_0)>\chi_p^2(\alpha).$$
+\end{theorem}
+
+\begin{theorem}[Confidence intervals for large samples, p. 235]
+	Let $X_1, X_2, ..., X_n$ be a random sample from a population with mean $\mu$ and positive definite covariance matrix $\Sigma$. If $n-p$ is large
+	$$a^T\overline{X}\pm \sqrt{\chi_p^2(\alpha)}\sqrt{\frac{a^TSa}{n}}$$ will contain $a^T\mu$ for every $a$ with probabyility approximately $1-\alpha$. 
+\end{theorem}
+
+The question of what is a large sample size is not easy to answer. In $1$ or $2$ dimensions, sample sizes in the range $30$ to $50$ can usually be considered large. 
+\end{document}
